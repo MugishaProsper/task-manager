@@ -36,4 +36,8 @@ export const login = async (req, res) => {
     console.error(error.message);
     return res.status(500).json({ message : "Server error" });
   }
+};
+
+export const logout = async (req, res) => {
+  res.cookie('jwt', '', { maxAge : 0 });
 }

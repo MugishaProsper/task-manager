@@ -13,8 +13,10 @@ export default authorize = async (req, res) => {
       return res.status(404).json({ message : "Token not found" });
     };
 
-    
+    req.user = decoded.userId;
+    return res.status(200).json(userId)
   } catch (error) {
-    
+    console.log(error.message);
+    res.status(500).json({ message : "Server error" })
   }
 }
